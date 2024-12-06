@@ -1,13 +1,10 @@
 // DOM Elements
-const menuBtn = document.querySelector('.menu-btn');
 const filterBtn = document.querySelector('.filter-btn');
 const filtersPanel = document.querySelector('.filters-panel');
 const closeFilters = document.querySelector('.close-filters');
-const searchInput = document.querySelector('.search-container input');
+const searchInput = document.querySelector('.search-wrapper input');
 const loadingMessage = document.querySelector('.loading-message');
 const toiletCardsContainer = document.querySelector('.toilet-cards');
-const sidebar = document.getElementById('sidebar');
-const closeSidebarBtn = document.querySelector('.close-sidebar');
 
 // Create overlay element
 const overlay = document.createElement('div');
@@ -42,29 +39,23 @@ const toilets = [
     }
 ];
 
-// Event Listeners
-menuBtn.addEventListener('click', () => {
-    sidebar.classList.add('active');
-    overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-});
-
-closeSidebarBtn.addEventListener('click', closeSidebar);
-overlay.addEventListener('click', closeSidebar);
-
-function closeSidebar() {
-    sidebar.classList.remove('active');
-    overlay.classList.remove('active');
-    document.body.style.overflow = '';
-}
-
+// Filter button functionality
 filterBtn.addEventListener('click', () => {
     filtersPanel.classList.add('active');
+    overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
 });
 
 closeFilters?.addEventListener('click', () => {
     filtersPanel.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+});
+
+// Close filters when clicking overlay
+overlay.addEventListener('click', () => {
+    filtersPanel.classList.remove('active');
+    overlay.classList.remove('active');
     document.body.style.overflow = '';
 });
 
@@ -184,16 +175,18 @@ function showDetails(id) {
     }
 }
 
-// Handle navigation items
-document.querySelectorAll('.nav-item').forEach(item => {
-    item.addEventListener('click', () => {
-        document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-        item.classList.add('active');
-        if (window.innerWidth <= 768) {
-            closeSidebar();
-        }
-    });
-});
+// Handle sliders
+const ratingSlider = document.getElementById('ratingSlider');
+const distanceSlider = document.getElementById('distanceSlider');
+
+function updateSliderValue(slider) {
+    const valueDisplay = slider.nextElementSibling;
+    if (slider.id === 'ratingSlider') {
+        valueDisplay.textContent = slider.value === '0' ? 'Any rating' : `${slider.value}+ stars`;
+    } else {
+        valueDisplay.textContent = slider.value === '5000' ? 'Any distance' : `Within ${slider.value}m`;
+    }
+}
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
