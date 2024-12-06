@@ -2,23 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Toilet Finder</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Menu</h2>
+            <button class="close-sidebar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="sidebar-content">
+            <nav>
+                <a href="#" class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    Home
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-star"></i>
+                    Favorites
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-history"></i>
+                    Recent
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    Settings
+                </a>
+            </nav>
+        </div>
+    </div>
+
     <!-- Header with Search -->
     <div class="header">
-        <button class="menu-btn">
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="search-container">
-            <input type="text" placeholder="Search for toilets...">
-            <button class="filter-btn">
-                <i class="fas fa-filter"></i>
+        <div class="header-content">
+            <button class="menu-btn">
+                <i class="fas fa-bars"></i>
             </button>
+            <div class="search-container">
+                <input type="text" placeholder="Search for toilets...">
+                <button class="filter-btn">
+                    <i class="fas fa-filter"></i>
+                </button>
+            </div>
         </div>
     </div>
 
@@ -29,146 +61,35 @@
 
     <!-- Main Content -->
     <div class="content">
-        <!-- Toilet Cards -->
         <div class="toilet-cards">
-            <!-- First Card -->
-            <div class="toilet-card">
-                <div class="card-header">
-                    <h2>Central Station Restroom</h2>
-                    <span class="status closed">CLOSED</span>
-                </div>
-                
-                <div class="rating">
-                    <span class="rating-number">4.5</span>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <span class="reviews">(128 reviews)</span>
-                </div>
-
-                <div class="location">
-                    <p><i class="fas fa-location-arrow"></i> 50m</p>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Station Square</p>
-                </div>
-
-                <div class="cleanliness">
-                    <span>Cleanliness:</span>
-                    <span>4.8/5</span>
-                </div>
-
-                <div class="features">
-                    <i class="fas fa-wheelchair"></i>
-                    <i class="fas fa-baby"></i>
-                    <i class="fas fa-dollar-sign"></i>
-                </div>
-
-                <div class="card-actions">
-                    <button class="btn-directions">
-                        <i class="fas fa-directions"></i>
-                        Get Directions
-                    </button>
-                    <button class="btn-details">
-                        <i class="fas fa-info-circle"></i>
-                        Details
-                    </button>
-                </div>
-            </div>
-
-            <!-- Second Card -->
-            <div class="toilet-card">
-                <div class="card-header">
-                    <h2>Shopping Mall Toilet</h2>
-                    <span class="status closed">CLOSED</span>
-                </div>
-                
-                <div class="rating">
-                    <span class="rating-number">4.2</span>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <span class="reviews">(89 reviews)</span>
-                </div>
-
-                <div class="location">
-                    <p><i class="fas fa-location-arrow"></i> 150m</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Main Mall, Level 2</p>
-                </div>
-
-                <div class="cleanliness">
-                    <span>Cleanliness:</span>
-                    <span>4.5/5</span>
-                </div>
-
-                <div class="features">
-                    <i class="fas fa-wheelchair"></i>
-                    <i class="fas fa-baby"></i>
-                    <i class="fas fa-coins"></i>
-                </div>
-
-                <div class="card-actions">
-                    <button class="btn-directions">
-                        <i class="fas fa-directions"></i>
-                        Get Directions
-                    </button>
-                    <button class="btn-details">
-                        <i class="fas fa-info-circle"></i>
-                        Details
-                    </button>
-                </div>
-            </div>
+            <!-- Cards will be inserted here by JavaScript -->
         </div>
+    </div>
 
-        <!-- Filters Panel -->
-        <div class="filters-panel">
-            <div class="filters-header">
-                <h2>Filters</h2>
-                <button class="close-filters">×</button>
-            </div>
-
-            <div class="filter-section">
-                <h3>Features</h3>
-                <div class="feature-options">
-                    <label class="feature-option">
-                        <input type="checkbox" name="wheelchair">
-                        <i class="fas fa-wheelchair"></i>
-                        Wheelchair Access
-                    </label>
-                    <label class="feature-option">
-                        <input type="checkbox" name="baby">
-                        <i class="fas fa-baby"></i>
-                        Baby Change
-                    </label>
-                    <label class="feature-option">
-                        <input type="checkbox" name="free">
-                        <i class="fas fa-dollar-sign"></i>
-                        Free
-                    </label>
-                </div>
-            </div>
-
-            <div class="filter-section">
-                <h3>Rating</h3>
-                <input type="range" min="0" max="5" step="0.5" value="0" class="slider">
-                <span class="slider-value">Any rating</span>
-            </div>
-
-            <div class="filter-section">
-                <h3>Distance</h3>
-                <input type="range" min="0" max="5000" step="100" value="5000" class="slider">
-                <span class="slider-value">Any distance</span>
-            </div>
-
-            <div class="filter-actions">
-                <button class="apply-filters">Apply Filters</button>
-                <button class="reset-filters">Reset</button>
+    <!-- Filters Panel -->
+    <div class="filters-panel">
+        <div class="filters-header">
+            <h2>Filters</h2>
+            <button class="close-filters">×</button>
+        </div>
+        <div class="filter-section">
+            <h3>Features</h3>
+            <div class="feature-options">
+                <label class="feature-option">
+                    <input type="checkbox" name="wheelchair">
+                    <i class="fas fa-wheelchair"></i>
+                    Wheelchair Access
+                </label>
+                <label class="feature-option">
+                    <input type="checkbox" name="baby">
+                    <i class="fas fa-baby"></i>
+                    Baby Change
+                </label>
+                <label class="feature-option">
+                    <input type="checkbox" name="free">
+                    <i class="fas fa-dollar-sign"></i>
+                    Free
+                </label>
             </div>
         </div>
     </div>
