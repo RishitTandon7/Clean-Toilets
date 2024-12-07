@@ -9,19 +9,64 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2><i class="fas fa-compass"></i> Toilet Finder</h2>
+            <button class="close-sidebar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="sidebar-content">
+            <nav>
+                <a href="#" class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    Home
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-heart"></i>
+                    Favorites
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-location-arrow"></i>
+                    Nearby
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-star"></i>
+                    Top Rated
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-history"></i>
+                    Recent
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    Settings
+                </a>
+            </nav>
+        </div>
+    </div>
+
     <!-- Header with Search -->
     <div class="header">
+        <button class="menu-btn" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
         <div class="search-wrapper">
-            <input type="text" placeholder="Search for toilets...">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" placeholder="Search for toilets..." aria-label="Search">
         </div>
-        <button class="filter-btn">
+        <button class="filter-btn" aria-label="Filter">
             <i class="fas fa-filter"></i>
         </button>
     </div>
 
     <!-- Loading Message -->
     <div class="loading-message">
-        Finding toilets near you...
+        <div class="loading-content">
+            <i class="fas fa-spinner fa-spin"></i>
+            <span>Finding toilets near you...</span>
+        </div>
     </div>
 
     <!-- Main Content -->
@@ -31,51 +76,174 @@
         </div>
     </div>
 
+    <!-- Add Toilet FAB -->
+    <button class="add-toilet-fab" aria-label="Add Toilet">
+        <i class="fas fa-plus"></i>
+        <span class="tooltip">Add New Toilet</span>
+    </button>
+
+    <!-- Add Toilet Modal -->
+    <div class="add-toilet-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-plus-circle"></i> Add New Toilet</h2>
+                <button class="close-modal" aria-label="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="addToiletForm">
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-camera"></i>
+                        Toilet Images
+                    </label>
+                    <div class="image-upload-container">
+                        <input type="file" id="toiletImages" multiple accept="image/*" aria-label="Upload Images">
+                        <div class="upload-placeholder">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span>Drop photos here or click to upload</span>
+                            <small>(Max 3 photos)</small>
+                        </div>
+                        <div class="image-preview"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-signature"></i>
+                        Name
+                    </label>
+                    <input type="text" name="name" placeholder="Enter toilet name" required>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-map-marker-alt"></i>
+                        Address
+                    </label>
+                    <input type="text" name="address" placeholder="Enter location" required>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-tags"></i>
+                        Features
+                    </label>
+                    <div class="feature-checkboxes">
+                        <label class="feature-checkbox">
+                            <input type="checkbox" name="features" value="wheelchair">
+                            <span class="checkbox-custom">
+                                <i class="fas fa-wheelchair"></i>
+                                Wheelchair Access
+                            </span>
+                        </label>
+                        <label class="feature-checkbox">
+                            <input type="checkbox" name="features" value="baby">
+                            <span class="checkbox-custom">
+                                <i class="fas fa-baby"></i>
+                                Baby Change
+                            </span>
+                        </label>
+                        <label class="feature-checkbox">
+                            <input type="checkbox" name="features" value="free">
+                            <span class="checkbox-custom">
+                                <i class="fas fa-dollar-sign"></i>
+                                Free Access
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-plus"></i>
+                    Add Toilet
+                </button>
+            </form>
+        </div>
+    </div>
+
     <!-- Filters Panel -->
     <div class="filters-panel">
         <div class="filters-header">
-            <h2>Filters</h2>
-            <button class="close-filters">×</button>
+            <h2><i class="fas fa-filter"></i> Filter Toilets</h2>
+            <button class="close-filters" aria-label="Close Filters">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
         
         <div class="filter-section">
-            <h3>Features</h3>
+            <h3><i class="fas fa-tags"></i> Features</h3>
             <div class="feature-options">
                 <label class="feature-option">
                     <input type="checkbox" name="wheelchair">
-                    <i class="fas fa-wheelchair"></i>
-                    Wheelchair Access
+                    <span class="checkbox-custom">
+                        <i class="fas fa-wheelchair"></i>
+                        Wheelchair Access
+                    </span>
                 </label>
                 <label class="feature-option">
                     <input type="checkbox" name="baby">
-                    <i class="fas fa-baby"></i>
-                    Baby Change
+                    <span class="checkbox-custom">
+                        <i class="fas fa-baby"></i>
+                        Baby Change
+                    </span>
                 </label>
                 <label class="feature-option">
                     <input type="checkbox" name="free">
-                    <i class="fas fa-dollar-sign"></i>
-                    Free
+                    <span class="checkbox-custom">
+                        <i class="fas fa-dollar-sign"></i>
+                        Free Access
+                    </span>
                 </label>
             </div>
         </div>
 
         <div class="filter-section">
-            <h3>Rating</h3>
-            <input type="range" min="0" max="5" step="0.5" value="0" class="slider" id="ratingSlider">
-            <span class="slider-value">Any rating</span>
+            <h3><i class="fas fa-star"></i> Minimum Rating</h3>
+            <div class="slider-container">
+                <input type="range" min="0" max="5" step="0.5" value="0" class="slider" id="ratingSlider">
+                <span class="slider-value">Any rating</span>
+            </div>
         </div>
 
         <div class="filter-section">
-            <h3>Distance</h3>
-            <input type="range" min="0" max="5000" step="100" value="5000" class="slider" id="distanceSlider">
-            <span class="slider-value">Any distance</span>
+            <h3><i class="fas fa-location-arrow"></i> Maximum Distance</h3>
+            <div class="slider-container">
+                <input type="range" min="0" max="5000" step="100" value="5000" class="slider" id="distanceSlider">
+                <span class="slider-value">Any distance</span>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <h3><i class="fas fa-clock"></i> Opening Hours</h3>
+            <div class="time-options">
+                <label class="time-option">
+                    <input type="checkbox" name="open24h">
+                    <span class="checkbox-custom">
+                        <i class="fas fa-clock"></i>
+                        Open 24/7
+                    </span>
+                </label>
+                <label class="time-option">
+                    <input type="checkbox" name="openNow">
+                    <span class="checkbox-custom">
+                        <i class="fas fa-door-open"></i>
+                        Open Now
+                    </span>
+                </label>
+            </div>
         </div>
 
         <div class="filter-actions">
-            <button class="apply-filters">Apply Filters</button>
-            <button class="reset-filters">Reset</button>
+            <button class="apply-filters">
+                <i class="fas fa-check"></i>
+                Apply Filters
+            </button>
+            <button class="reset-filters">
+                <i class="fas fa-undo"></i>
+                Reset All
+            </button>
         </div>
     </div>
+
+    <!-- Notification Container -->
+    <div class="notification-container"></div>
 
     <script src="app.js"></script>
 </body>
