@@ -34,7 +34,7 @@ let toilets = [
         address: "123 Station Square",
         features: ["wheelchair", "baby", "free"],
         coordinates: { lat: 51.5074, lng: -0.1278 },
-        images: ["path/to/image1.jpg"],
+        images: ["ct.jpg"],
         isFavorite: false
     },
     {
@@ -48,7 +48,7 @@ let toilets = [
         address: "456 Mall Street",
         features: ["wheelchair", "paid"],
         coordinates: { lat: 51.5075, lng: -0.1276 },
-        images: ["path/to/image2.jpg"],
+        images: ["mt.jpeg"],
         isFavorite: false
     }
 ];
